@@ -1,0 +1,70 @@
+body
+{
+    font-family: arial;
+    font-size: 8pt;  
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    
+}
+
+table
+{
+    border-collapse: collapse;
+    }
+    th {
+     background: #ccc;
+     text-align: left;
+    }
+    th {
+     border: 1px solid #800;
+     padding: 4px;
+    } 
+
+.col
+{
+    word-wrap: break-word;
+}
+
+.invoice_com_items
+{
+    /*border: 1px solid;*/
+    /*background-color: black;*/
+
+    border-collapse: collapse;    
+}
+
+.invoice_com_items td,th
+{
+    background-color: white;
+    font-size: 8pt;
+
+    border: 1px solid #000000;
+    border-bottom: 1px solid;
+    padding:0;
+    margin:0;
+}
+
+.invoice_com_items thead th
+{
+    font-weight:normal;
+    text-align: center;
+    font-size: 8pt;
+}
+
+.invoice_com_items thead td
+{
+    font-weight:normal;
+    text-align: center;
+    font-size: 8pt;
+}
+
+.invoice_com_items input 
+{
+    
+    margin:0;
+    padding:0;
+    font-size:8pt;
+    width: 100%;
+}
+

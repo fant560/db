@@ -1,0 +1,218 @@
+<div class="container, col-12">
+  <p class="text-right">
+    Приложение №1<br>к постановлению Правительства Российской Федерации<br>от 26 декабря 2011 г. № 1137
+  </p>
+</div>
+
+
+<div class="container, col-12">
+  <div id="schetcom_number_date" class="col" style="width:980px;font-weight:bold;font-size:14pt;padding-left:5px;">
+    СЧЕТ-ФАКТУРА № 0 от {{getLocalDate()}}
+  </div>
+  <div id="schetcom_change_date" class="col"
+       style="width:980px;font-weight:bold;font-size:14pt;padding-left:5px;">Исправление № -- от --
+  </div>
+  <table class="table-active">
+    <tr>
+      <td>
+        <div id="prodavec" class="col"
+             style="width:980px;font-size:8pt;padding-left:2px;">Продавец: ООО"МаКОЛ"
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="address_prod" class="col" style="width:980px;font-size:8pt;padding-left:2px;">Адрес: 426060, Ижевск, Зенитная, 10Б
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="innkpp_prod" class="col" style="width:980px;font-size:8pt;padding-left:2px;">ИНН/КПП продавца:
+          124312651254
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="gruzootpr" class="col" style="width:980px;font-size:8pt;padding-left:2px;">Грузоотправитель и его
+          адрес: ООО "НефТЯНник"
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="gruzopol" class="col" style="width:980px;font-size:8pt;padding-left:2px;">Грузополучатель и его адрес:  ООО "Роботник"
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="platezka" class="col" style="width:980px;font-size:8pt;padding-left:2px;">К платежно-расчетному
+          документу № от 20.07.2006
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="pokupatel" class="col" style="width:980px;font-size:8pt;padding-left:2px;">Покупатель: ИП Рябинов
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="address_pokup" class="col" style="width:980px;font-size:8pt;padding-left:2px;">Адрес: 357508, Белгород, Пушкинская, 2
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="innkpp_pokup" class="col" style="width:980px;font-size:8pt;padding-left:2px;">ИНН/КПП покупателя:
+          123409876543
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="valuta" class="col" style="width:100%;font-size:8pt;">Валюта: Рубль
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<table class="table-bordered">
+  <thead>
+  <tr>
+    <th style="width:160px;" rowspan="2">
+      <div id="name_txt" class="d-lg-table-cell"  style="font-size: 12px">Наименование товара
+        (описание выполненных работ, оказанных услуг), имущественного права
+      </div>
+    </th>
+    <th class="d-lg-table-cell" colspan="2">
+      Единица измерения
+    </th>
+    <th class="d-lg-table-cell" rowspan="2">Количество
+    </th>
+    <th class="d-lg-table-cell" rowspan="2">
+      Цена (тариф) за единицу измерения
+    </th>
+    <th class="d-lg-table-cell" rowspan="2">
+     Стоимость товаров (работ,
+        услуг), имущественных прав без налога - всего
+    </th>
+    <th class="d-lg-table-cell" rowspan="2">
+      В том числе акциз
+    </th>
+    <th class="d-lg-table-cell" rowspan="2">
+      Налоговая ставка
+    </th>
+    <th class="d-lg-table-cell" rowspan="2">
+      Сумма налога, предъявляемая покупателю
+    </th>
+    <th class="d-lg-table-cell" rowspan="2">
+      Стоимость товаров (работ, услуг), имущественных прав с налогом - всего
+    </th>
+    <th class="d-lg-table-cell" colspan="2">
+     Страна происхождения товара
+    </th>
+    <th class="d-lg-table-cell" rowspan="2">
+      Номер таможенной декларации
+    </th>
+  </tr>
+  <tr>
+    <th>код</th>
+    <th>условное обозначение (национальное)</th>
+    <th>цифровой код</th>
+    <th>краткое наименование</th>
+  </tr>
+  </thead>
+
+
+  <tr *ngFor="let element of getData()">
+    <td>{{element.nameOfProduct}}</td>
+    <td>{{element.codeOfProduct}}</td>
+    <td>{{element.unitCode}}</td>
+    <td>{{element.quantity}}</td>
+    <td>{{element.priceOfUnit}}</td>
+    <td>{{element.sumOfProductWithoutTax}}</td>
+    <td>{{element.sumOfExcise}}</td>
+    <td>{{element.taxRate}}</td>
+    <td>{{element.sumOfTax}}</td>
+    <td>{{element.sumOfProductWithTax}}</td>
+    <td>{{element.countryCodeOfProduct}}</td>
+    <td>{{element.briefNameOfCountryOfProd}}</td>
+    <td>{{element.corAccDebit}}</td>
+  </tr>
+
+  <tr id="last_item">
+    <td colspan="14" style="border-bottom:1px solid;border-collapse: collapse; ">
+      <div id="gtd1_id" style="width:166px;">&nbsp;</div>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="5">
+      <div id="items_summ_txt" class="col"
+           style="font-weight:bold;font-size:10pt;width:300px;">Всего к оплате: {{getTotalCount()}}
+      </div>
+    </td>
+    <td>
+    </td>
+    <td colspan="2" style="text-align: center;">
+      X
+    </td>
+    <td>
+    </td>
+    <td id="invoice_total_summ" style="font-weight:bold;font-size:10pt;text-align:right;">
+    </td>
+    <td colspan="3" style="border:0px;"></td>
+  </tr>
+</table>
+
+
+<input name="nds" type="checkbox" value="1">С НДС <select name="nds_type">
+  <option value="18">18%</option>
+  <option value="10">10%</option>
+</select>
+<br/><br/>
+<table width="100%">
+  <tr>
+    <td valign="top" width="500">
+      <div id="owner" class="col" edtype="text" style="font-size:8pt;">Руководитель организации &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;______________________
+        (Фамилия И.О.)
+      </div>
+      <div id="owner_mile" class="col" edtype="text" style="font-size:7pt;text-align:center;">подпись
+      </div>
+      <br/>
+      <div id="ip" class="col" edtype="text" style="font-size:8pt;">Индивидуальный предприниматель
+        &nbsp;&nbsp;&nbsp;&nbsp;______________________ (Фамилия И.О.)
+      </div>
+      <div id="ip_mile" class="col" edtype="text" style="font-size:7pt;text-align:center;">подпись
+      </div>
+    </td>
+    <td valign="top" width="500">
+      <div id="buhgalter" class="col" edtype="text" style="font-size:8pt;">Главный бухгалтер &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;______________________
+        (Фамилия И.О.)
+      </div>
+      <div id="buhgalter_mile" class="col" edtype="text" style="font-size:7pt;text-align:center;">
+        подпись
+      </div>
+      <br/>
+      <div id="ogrn" class="col" edtype="text">
+        ________________________________________________________
+      </div>
+      <div id="ogrn_mile" class="col" edtype="textarea"
+           style="font-size:7pt;width:402px;text-align:center;">(реквизиты свидетельства о
+        государственной регистрации индивидуального предпринимателя)
+      </div>
+      <br/>
+      <br/>
+    </td>
+  </tr>
+</table>
+<div id="prim" class="col" edtype="textarea" style="font-size:7pt;">ПРИМЕЧАНИЕ. Первый экземпляр -
+  покупателю, второй экземпляр - продавцу
+</div>
+
