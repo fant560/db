@@ -4,13 +4,13 @@
 
 #### Проверить версию java 
 <pre>
-Пишем в консоли java --version
+Пишем в консоли java -version
 Должна быть версия 1.8(в принципе oracle требует jre, так что все должно быть нормально)
 </pre>
 
 #### Сменить настройки подключения
 <pre>
-редактируем файл src/main/resources/application.yml
+редактируем файл src/main/resources/application.properties
 меняем вот эти три строчки 
 spring.datasource.url=jdbc:oracle:thin:@localhost:1522:xe
 spring.datasource.username=SYSTEM
