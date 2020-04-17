@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component
 import ru.test.db.entity.BufferXml
 import ru.test.db.repository.BufferXmlRepository
 import java.io.ByteArrayInputStream
+import java.nio.charset.Charset
 import java.time.LocalDateTime
 import java.util.*
 import javax.annotation.PostConstruct
@@ -26,6 +27,9 @@ class DataSaver {
     @Autowired
     private lateinit var bufferXmlRepository: BufferXmlRepository
 
+    @Autowired
+    private lateinit var validator: Validator
+
     /**
      * Основной метод загрузки
      */
@@ -38,8 +42,35 @@ class DataSaver {
                 recordDate = Date()
         )
 
-        bufferXmlRepository.save(buffer)
+        try {
+            validator.validate(data)
+            bufferXmlRepository.save(buffer)
+        } catch (e: Exception) {
+            logger.warn("Не удалось сохранить сообщение - ошибка валидации - ${e.message}")
+            logger.warn("Сообщение - ${String(data)}")
+        }
+
+
+
+
 
     }
 
+
+    fun save(data: ByteArray){
+        val buffer = BufferXml(
+                xmlContent = data,
+                xmlResource = "WEB-SERVICE",
+                recordDate = Date()
+        )
+        try {
+            validator.validate(data)
+            bufferXmlRepository.save(buffer)
+        } catch (e: Exception) {
+            logger.warn("Не удалось сохранить сообщение - ошибка валидации - ${e.message}")
+            logger.warn("Сообщение - ${String(data)}")
+            throw RuntimeException(e)
+        }
+
+    }
 }

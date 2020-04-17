@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.client.getForEntity
+import java.nio.charset.Charset
+import java.nio.file.Files
+import java.nio.file.Paths
 
 @Component
 class DocumentLoader {
@@ -15,7 +18,7 @@ class DocumentLoader {
 
 
     fun load(): ByteArray{
-        return restTemplate.getForEntity<ByteArray>(link).body!!
+        return restTemplate.getForEntity<String>(link).body!!.toByteArray(Charset.forName("WINDOWS-1251"))
     }
 
 }
